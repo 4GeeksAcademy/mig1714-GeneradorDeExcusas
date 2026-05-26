@@ -6,10 +6,10 @@ let when = ['before the class', 'when I was sleeping', 'while I was exercising',
 
 
 
-const selector = (array)=>{
+const selector = (array) => {
 
 
-  let elegir = Math.floor(Math.random()*array.length );
+  let elegir = Math.floor(Math.random() * array.length);
 
   return elegir
 
@@ -17,11 +17,44 @@ const selector = (array)=>{
 }
 
 
-const excusa =()=>{
+const excusa = () => {
 
   return `${who[selector(who)]} ${action[selector(action)]} ${what[selector(what)]} ${when[selector(when)]}`;
 }
 
-console.log(selector(who));
+let intervalo;
 
-console.log(excusa());
+function excusas(){
+
+
+    intervalo = (setInterval(() => {
+
+
+
+    const contenedor = document.getElementById("excuse");
+    contenedor.innerHTML = excusa();
+
+
+
+  }, 1000)); 
+
+
+
+
+}
+
+function detenerExcusa(){
+
+
+  clearInterval(intervalo);
+}
+
+ 
+
+
+
+
+
+
+
+
